@@ -12,7 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 from .v1.routers.chat import chat_router
-from .v1.routers.comments import comments_router
 from .v1.routers.document_admin import admin_router
 from .v1.routers.document_docs import docs_router
 from .v1.routers.document_list import list_router
@@ -24,7 +23,6 @@ from .v1.routers.search_titles_docs import search_titles_docs_router
 __all__ = [
     "admin_router",
     "chat_router",
-    "comments_router",
     "docs_router",
     "list_router",
     "recommendation_router",
