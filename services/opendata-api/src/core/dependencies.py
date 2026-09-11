@@ -155,6 +155,9 @@ async def lifespan(app: FastAPI):
     logger.info("애플리케이션 시작 중...")
 
     await service_container.initialize()
+    await MongoDB.get_db()["chat_daily_usage"].create_index(
+        "expiresAt", expireAfterSeconds=0
+    )
     logger.info("애플리케이션 초기화 완료")
 
     yield

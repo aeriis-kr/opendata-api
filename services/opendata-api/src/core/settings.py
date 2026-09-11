@@ -13,7 +13,7 @@
 # limitations under the License.
 import os
 from functools import lru_cache
-from typing import Type
+from typing import Literal, Type
 
 from pydantic import Field
 from pydantic_settings import (
@@ -91,6 +91,16 @@ class Settings(BaseSettings):
     )
 
     MILVUS_URL: str = Field(default="http://milvus:19530", alias="MILVUS_URL")
+
+    OPENAI_API_KEY: str | None = None
+    OPENAI_MODEL: str = "gpt-5-mini"
+    ODP_SERVICE_KEY: str | None = None
+    MCP_SERVER_URL: str = "https://mcp.ezrnd.co.kr/mcp"
+    RATE_LIMIT_SECRET: str | None = None
+    CLIENT_IP_HEADER: Literal["CF-Connecting-IP", "X-Forwarded-For"] | None = (
+        None
+    )
+    TRUSTED_PROXY_CIDRS: str = ""
 
     def __init__(self, **kwargs):
         super().__init__(**kwargs)

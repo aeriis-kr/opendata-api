@@ -21,6 +21,7 @@ from starlette.middleware.cors import CORSMiddleware
 
 from api import (
     admin_router,
+    chat_router,
     comments_router,
     docs_router,
     list_router,
@@ -79,6 +80,7 @@ app.include_router(comments_router, prefix="/api/v1", tags=["comments"])
 app.include_router(
     recommendation_router, prefix="/api/v1", tags=["recommendation"]
 )
+app.include_router(chat_router, prefix="/api/v1", tags=["chat"])
 
 security = HTTPBasic()
 
